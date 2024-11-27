@@ -1,3 +1,16 @@
+:root {
+    /* Color Palette */
+    --color-background: #FAF0E6;       /* Creamy Ivory */
+    --color-project-card: #FFF;        /* Pure Snow */
+    --color-project-links: #F8F6F6;    /* Soft Pearl */
+    --color-social-links: #F8F6F6;     /* Soft Pearl */
+    --color-text: #2F4F4F;             /* Deep Charcoal */
+    --color-accent: #8B4513;           /* Rustic Copper */
+    --color-badge: #FF4D4D;            /* Crimson Blaze */
+    
+    /* Transition Duration */
+    --transition-duration: 0.3s;
+}
 /* Reset & Base Styles */
 * {
     margin: 0;
@@ -8,8 +21,8 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f5f5f5; /* Light background for contrast */
+    color: var(--color-text);
+    background-color: var(--color-background);
 }
 
 .container {
@@ -19,12 +32,25 @@ body {
     padding: 20px 0;
 }
 
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text);
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Paragraphs */
+p {
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
 /* Main Container */
 .main-container {
-    display: flex;
+    display: flex; /* or flex or center? */
     flex-direction: row;
     justify-content: space-between;
-    align-items: center; /* Changed from center to flex-start */
+    align-items: center; /* flex-start or center? */
     height: 100vh; /* Full viewport height */
     padding: 20px;
 }
@@ -50,6 +76,34 @@ body {
     padding: 20px;
 }
 
+/* Primary Button Styling */
+.btn-primary {
+    background-color: var(--color-accent);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-duration) ease, transform var(--transition-duration) ease;
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--color-accent), 10%); /* Darken the accent color on hover */
+    transform: scale(1.05);
+}
+
+/* Link Styling */
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-duration) ease;
+}
+
+a:hover {
+    color: #A0522D; /* Sienna - a darker shade of brown */
+    text-decoration: underline;
+}
+
 /* Profile Picture Styling */
 .profile-pic {
     width: 200px;
@@ -58,7 +112,7 @@ body {
     border-radius: 50%;
     margin-bottom: 20px;
     border: 4px solid #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease; /* Smooth transitions */
     transform: scale(1.05); /* Apply current hover scale as default */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Apply current hover shadow as default */
 }
@@ -78,7 +132,7 @@ body {
     margin-top: 10px;
     font-size: 1.8rem; /* Adjust size as needed */
     font-weight: 700; /* Bold text */
-    color: #333;
+    color: var(--color-text);
     text-align: center;
     font-family: 'Roboto', sans-serif; /* Ensures consistency with the rest of the site */
 }
@@ -99,18 +153,18 @@ body {
     justify-content: center;              /* Horizontally centers the icon */
     width: 50px;                           /* Fixed width for uniformity */
     height: 50px;                          /* Fixed height for uniformity */
-    background-color: #fff;                /* White background */
-    color: #007BFF;                        /* Blue icon color */
+    background-color: var(--color-project-links); /* Changed from #fff to neutral color */
+    color: var(--color-accent);           /* Changed from #007BFF to accent color */
     border-radius: 50%;                    /* Makes the link circular */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    transition: background-color var(--transition-duration) ease, transform var(--transition-duration) ease; /* Smooth transitions */
     text-decoration: none;                 /* Removes underline from links */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .icon-link:hover {
-    background-color: #f5f5f5;             /* Light gray background on hover */
-    color: #007BFF;                        /* Maintain blue icon color on hover */
-    transform: scale(1.1);                  /* Slightly enlarges the icon on hover */
+    background-color: var(--color-social-links); /* Light gray background on hover */
+    color: var(--color-accent);                  /* Maintain accent color on hover */
+    transform: scale(1.1);                        /* Slightly enlarges the icon on hover */
 }
 
 .icon-link i,
@@ -127,7 +181,7 @@ body {
     height: 30px;   /* Increased size for better visibility */
     object-fit: cover; /* Ensures the logo fills the container without distortion */
     border-radius: 50%; /* Makes the Nostr logo circular */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Maintains hover effects */
+    transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease; /* Maintains hover effects */
 }
 
 /* QR Code */
@@ -139,7 +193,7 @@ body {
 
 .qr-code p {
     font-size: 1rem; /* Adjust as needed */
-    color: #333; /* Text color */
+    color: var(--color-text); /* Text color */
     margin-bottom: 10px; /* Space between text and image */
 }
 
@@ -179,29 +233,28 @@ body {
 
 .project-card-wrapper:hover .coming-soon-badge {
     transform: translateY(-15px) rotate(-10deg);
-    /* If you want the rotation to adjust, modify the angle accordingly */
-    /* For example, rotate(-5deg) instead of rotate(-10deg) */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 77, 77, 0.7); /* More pronounced shadow and glow on hover */
 }
 
 /* Project Card Transition */
 .project-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
 }
 
 /* Coming Soon Badge Transition */
 .coming-soon-badge {
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform var(--transition-duration) ease, opacity var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
 }
 
 /* Project Card Styling */
 .project-card {
     flex: 1; /* Allows the project card to grow and fill the wrapper */
-    background-color: #fff;
+    background-color: var(--color-project-card);
     padding: 20px;
     border-radius: 16px; /* Consistent border-radius */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Consistent box-shadow */
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease; /* Smooth transitions */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Distributes space between elements */
@@ -219,14 +272,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow var(--transition-duration) ease;
 }
 
 .image-container img {
     width: 95%;
     height: 95%;
     object-fit: contain; /* Ensures images scale uniformly */
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-duration) ease;
 }
 
 .image-container img:hover {
@@ -236,7 +289,7 @@ body {
 .project-card h3 {
     margin: 15px 0 10px;
     font-size: 1.5rem;
-    color: #000000;
+    color: var(--color-text);
 }
 
 .project-card p {
@@ -251,15 +304,15 @@ body {
     position: absolute;
     top: 10px; /* Distance from the top of the wrapper */
     left: -10px; /* Distance from the left of the wrapper */
-    background-color: #ff4d4d; /* Vibrant red background */
+    background-color: var(--color-badge);
     color: #fff; /* White text for contrast */
     padding: 12px 28px; /* Increased padding for wider appearance */
     font-size: 1.1rem; /* Larger font size for visibility */
     font-weight: bold;
     border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 77, 77, 0.5); /* Added glow */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 77, 77, 0.5); /* Enhanced shadow with glow */
     transform: rotate(-15deg); /* Fun tilt */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transitions */
+    transition: transform var(--transition-duration) ease, opacity var(--transition-duration) ease, box-shadow var(--transition-duration) ease; /* Smooth transitions including shadow */
     opacity: 0.95; /* Slight transparency */
     z-index: 10; /* Ensures the badge appears above other elements */
     white-space: nowrap; /* Prevents text wrapping */
@@ -268,15 +321,16 @@ body {
     overflow: hidden; /* Hides overflowing text */
 }
 
-/*  Enhance shadow on hover */
+/* Enhance shadow on hover */
 .project-card-wrapper:hover .coming-soon-badge {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 77, 77, 0.7); /* More pronounced shadow and glow on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 77, 77, 0.7); /* More pronounced shadow and glow on hover */
 }
 
-/* Hover Effect for Badge */
-.coming-soon-badge:hover {
-    transform: rotate(-5deg) scale(1.05); /* Slightly reduce tilt and enlarge */
-    opacity: 1; /* Fully opaque on hover */
+/* Coming Soon Badge Hover */
+.project-card-wrapper:hover .coming-soon-badge {
+    transform: translateY(-15px) rotate(-10deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 77, 77, 0.7);
+    opacity: 1;
 }
 
 /* Tooltip Styling */
@@ -294,7 +348,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity var(--transition-duration) ease;
 }
 
 /* Tooltip Arrow */
@@ -445,7 +499,7 @@ body {
     /* Responsive Adjustments for Coming Soon Badge */
     .coming-soon-badge {
         top: 6px;
-        left: 6px;
+        left: -6px;
         padding: 8px 20px; /* Adequate padding */
         font-size: 0.9rem; /* Maintain readability */
         border-radius: 8px;
