@@ -332,19 +332,18 @@ a:hover {
 /* Tooltip Styling */
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 160px;
-    background-color: rgba(0, 0, 0, 0.8);
+    width: 120px;
+    background-color: var(--color-text);
     color: #fff;
     text-align: center;
     border-radius: 4px;
     padding: 6px 0;
     position: absolute;
     z-index: 1;
-    bottom: 125%; /* Position above the icon */
+    bottom: 100%; /* Position above the icon */
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    transition: opacity var(--transition-duration) ease;
 }
 
 /* Tooltip Arrow */
@@ -359,8 +358,9 @@ a:hover {
     border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
 }
 
-/* Show the tooltip on hover */
-.tooltip:hover .tooltiptext {
+/* Show the tooltip on hover and focus */
+.tooltip:hover .tooltiptext,
+.tooltip:focus .tooltiptext {
     visibility: visible;
     opacity: 1;
 }
@@ -374,6 +374,24 @@ a:hover {
     margin-top: 15px; /* Space above the links */
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
     align-items: center; /* Vertically align items */
+}
+
+/* Project Link Styling */
+.project-link {
+    position: relative; /* Necessary for tooltip positioning */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Adjust padding as needed */
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-duration) ease, transform var(--transition-duration) ease;
+}
+
+.project-link:hover,
+.project-link:focus {
+    color: var(--color-social-links);
+    transform: scale(1.1);
 }
 
 /* Disabled Icon Styling */
