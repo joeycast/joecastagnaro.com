@@ -103,6 +103,10 @@ a:hover {
     color: #A0522D; /* Sienna - a darker shade of brown */
 }
 
+.underline-link {
+    text-decoration: underline;
+}
+
 /* Profile Picture Styling */
 .profile-pic {
     width: 200px;
